@@ -30,8 +30,8 @@ mainsail_folder=~/mainsail
 ### Path to your Fluidd folder, by default that is '~/fluidd'
 #fluidd_folder=~/fluidd
 
-### Path to your Fluidd folder, by default that is '~/spoolman'
-spoolman_folder=~/spoolman
+### Path to your Fluidd folder, by default that is '~/Spoolman'
+spoolman_folder=~/Spoolman
 
 ### The branch of the repository that you want to save your config
 ### By default that is 'main'

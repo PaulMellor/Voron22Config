@@ -1,0 +1,89 @@
+[server]
+host = 0.0.0.0
+port = 7125
+klippy_uds_address = /home/pi/printer_data/comms/klippy.sock
+
+[authorization]
+trusted_clients = 
+	192.168.0.0/16
+	10.0.0.0/8
+	127.0.0.0/8
+	169.254.0.0/16
+	172.16.0.0/12
+	192.168.0.0/16
+	FE80::/10
+	::1/128
+cors_domains = 
+	*.lan
+	*.local
+	*://localhost
+	*://localhost:*
+	*://my.mainsail.xyz
+	*://app.fluidd.xyz
+
+[octoprint_compat]
+
+[history]
+
+[update_manager]
+channel = dev
+refresh_interval = 168
+
+[update_manager mainsail]
+path = /home/pi/mainsail
+repo = mainsail-crew/mainsail
+channel = stable
+type = web
+
+[update_manager KlipperScreen]
+install_script = /home/pi/KlipperScreen/scripts/KlipperScreen-install.sh
+requirements = /home/pi/KlipperScreen/scripts/KlipperScreen-requirements.txt
+env = /home/pi/.KlipperScreen-env/bin/python
+managed_services = KlipperScreen
+origin = https://github.com/moggieuk/KlipperScreen-Happy-Hare-Edition.git
+path = /home/pi/KlipperScreen
+type = git_repo
+
+[update_manager happy-hare]
+type = git_repo
+path = ~/Happy-Hare
+origin = https://github.com/moggieuk/Happy-Hare.git
+primary_branch = main
+install_script = install.sh
+managed_services = klipper
+
+[update_manager cartographer]
+type = git_repo
+path = ~/cartographer-klipper
+channel = stable
+origin = https://github.com/Cartographer3D/cartographer-klipper.git
+is_system_service = False
+managed_services = klipper
+info_tags = 
+	desc=Cartographer Probe
+
+[mmu_server]
+enable_file_preprocessor = True
+enable_toolchange_next_pos = True
+update_spoolman_location = True
+
+[update_manager led_effect]
+type = git_repo
+path = ~/klipper-led_effect
+origin = https://github.com/julianschill/klipper-led_effect.git
+is_system_service = False
+
+[spoolman]
+server = http://192.168.0.117:7912
+sync_rate = 5
+
+[update_manager Klippain-ShakeTune]
+type = git_repo
+origin = https://github.com/Frix-x/klippain-shaketune.git
+path = ~/klippain_shaketune
+virtualenv = ~/klippy-env
+requirements = requirements.txt
+system_dependencies = system-dependencies.json
+primary_branch = main
+managed_services = klipper
+

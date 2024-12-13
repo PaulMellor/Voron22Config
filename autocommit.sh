@@ -30,6 +30,9 @@ mainsail_folder=~/mainsail
 ### Path to your Fluidd folder, by default that is '~/fluidd'
 #fluidd_folder=~/fluidd
 
+### Path to your Fluidd folder, by default that is '~/spoolman'
+spoolman_folder=~/spoolman
+
 ### The branch of the repository that you want to save your config
 ### By default that is 'main'
 branch=main
@@ -60,6 +63,10 @@ grab_version(){
   if [ ! -z "$fluidd_folder" ]; then
     fluidd_ver=$(head -n 1 $fluidd_folder/.version)
     m4="Fluidd version: $fluidd_ver"
+  fi
+ if [ ! -z "$spoolman_folder" ]; then
+    spoolman_ver=$(head -n 1 $spoolman_folder/.version)
+    m4="Spoolman version: $spoolman_ver"
   fi
 }
 
